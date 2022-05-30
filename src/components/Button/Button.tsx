@@ -1,19 +1,16 @@
 import React from 'react';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-interface Props {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
 }
 
 const Button: React.FC<Props> = (props): JSX.Element => {
   const { children, className, ...rest } = props;
-
-  console.log(cx('wrapper'));
-  console.log(styles.wrapper);
 
   return (
     <button className={cx('wrapper', className)} {...rest}>
