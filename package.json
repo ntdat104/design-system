@@ -22,7 +22,21 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint --ext js,jsx,ts,tsx src",
+    "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src",
+    "prettier": "prettier --check src",
     "prettier:fix": "prettier --write src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint:fix",
+      "yarn prettier:fix"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +57,11 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.3",
     "prettier": "^2.6.2",
     "sass": "^1.52.1"
   }
