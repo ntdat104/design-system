@@ -6,7 +6,7 @@ interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 const Image: React.FC<Props> = (props): JSX.Element => {
   const { src, ...rest } = props;
-  return <img src={src} {...rest} />;
+  return <img src={src} {...rest} alt={`img`} />;
 };
 
 export default Image;
